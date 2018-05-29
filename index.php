@@ -17,6 +17,7 @@ $operationFrontEnd = 'shorten';
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ShortM - Home</title>
     <link rel="stylesheet" id="loaderCSS" href="/css/loader.css">
+    <link rel="stylesheet" id="loaderCSS" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
 	<?php getLoader(); ?>
 </head>
@@ -51,36 +52,39 @@ $operationFrontEnd = 'shorten';
 </div>
 <hr class="customHR">
 <br>
-<div class="container">
-    <div class="mx-auto col-md-4">
-        <img src="/resources/ShortMLogoMin.png" alt="ShortM" class=" ">
 
-    </div>
+<div class="container mx-auto col-md-8">
+    <img src="/resources/ShortMLogoMin.png" alt="ShortM" class="mx-auto d-block">
+
 </div>
-<form action="/backend/shorten" method="post">
-    <div class="container mx-auto col-md-4">
 
-        <div class="row d-flex justify-content-center text-center align-items-center ">
+<div class="container">
+    <form action="/backend/shorten" method="post">
+        <div class="container mx-auto col-md-8">
 
-            <div class="input-group col-md-8 mx-auto">
-                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg text-center"
-                       placeholder="Please enter the URL."
-                       minlength="5"
-                       autofocus required>
-            </div>
-            <br>
-            <br>
-            <div class="input-group col-md-8 mx-auto">
-                <input name="btn" type="submit" id="btn" value="Shorten"
-                       class="btn btn-block btn-outline-primary form-control input-lg">
+            <div class="row d-flex justify-content-center text-center align-items-center">
+
+                <div class="input-group col-md-8 mx-auto">
+                    <input name="url" type="url"
+                           class="form-control input-lg text-center"
+                           placeholder="Please enter the URL."
+                           minlength="5"
+                           autofocus required>
+                </div>
+                <br>
+                <br>
+                <div class="input-group col-md-8 mx-auto">
+                    <input name="btn" type="submit" id="btn" value="Shorten"
+                           class="btn btn-block btn-outline-primary form-control input-lg">
+                </div>
+
             </div>
 
         </div>
-
-    </div>
-    <input type="hidden" name="ip" value="<?= getIP(); ?>">
-    <input type="hidden" name="operation" value="<?= $operationFrontEnd; ?>">
-</form>
+        <input type="hidden" name="ip" value="<?= getIP(); ?>">
+        <input type="hidden" name="operation" value="<?= $operationFrontEnd; ?>">
+    </form>
+</div>
 
 <script src="/js/jquery-3.3.1.min.js"></script>
 <script>

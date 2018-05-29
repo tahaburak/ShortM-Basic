@@ -68,12 +68,11 @@ if (!array_key_exists('savedURL', $_SESSION) || empty($_SESSION['savedURL']) ||
 </div>
 <hr class="customHR">
 <br>
-<div class="container">
-    <div class="mx-auto col-md-4">
-        <img src="/resources/ShortMLogoMin.png" alt="ShortM" class=" ">
+<div class="container mx-auto col-md-8">
+    <img src="/resources/ShortMLogoMin.png" alt="ShortM" class="mx-auto d-block">
 
-    </div>
 </div>
+
 <div class="container mx-auto col-md-4">
 
     <div class="row d-flex justify-content-center text-center align-items-center ">

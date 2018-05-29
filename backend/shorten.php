@@ -16,6 +16,12 @@ if (!array_key_exists('operation', $_POST) || $_POST['operation'] !== $operation
 
 	$ip = $_POST['ip'];
 	$url = strip_tags($_POST['url']);
+
+	// an example controller
+	if (strlen($url) < 5) {
+		abortRedirect('URL can not be shorter than 5 characters.');
+	}
+
 	$slang = generateReadableRandomString();
 
 	while (!isSlangOK($slang)) {
