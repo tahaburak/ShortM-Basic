@@ -23,8 +23,9 @@ $operationFrontEnd = 'shorten';
 
 
 <body>
+<br>
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background: #5a6268">
         <a class="navbar-brand" href="/">ShortM - URL Shortening Service</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,22 +40,39 @@ $operationFrontEnd = 'shorten';
                 <li class="nav-item">
                     <a href="/records" class="nav-link">Records</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
 
             </ul>
 
         </div>
     </nav>
 </div>
+<hr class="customHR">
+<br>
+<div class="container">
+    <div class="mx-auto col-md-4">
+        <img src="/resources/ShortMLogoMin.png" alt="ShortM" class=" ">
+
+    </div>
+</div>
 <form action="/backend/shorten" method="post">
-    <div class="container">
+    <div class="container mx-auto col-md-4">
 
-        <div class="row d-flex">
+        <div class="row d-flex justify-content-center text-center align-items-center ">
 
-            <div class="input-group col-md-4">
-                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg"
+            <div class="input-group col-md-8 mx-auto">
+                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg text-center"
                        placeholder="Please enter the URL."
                        minlength="5"
                        autofocus required>
+            </div>
+            <br>
+            <br>
+            <div class="input-group col-md-8 mx-auto">
+                <input name="btn" type="submit" id="btn" value="Shorten"
+                       class="btn btn-block btn-outline-primary form-control input-lg">
             </div>
 
         </div>

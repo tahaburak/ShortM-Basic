@@ -15,6 +15,7 @@ $itemsArray = getAllTheItems();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ShortM - Records</title>
     <link rel="stylesheet" id="loaderCSS" href="/css/loader.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/DataTables/datatables.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
@@ -30,8 +31,9 @@ $itemsArray = getAllTheItems();
 
 
 <body>
+<br>
 <div class="container-fluid">
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background: #5a6268">
         <a class="navbar-brand" href="/">ShortM - URL Shortening Service</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,12 +48,18 @@ $itemsArray = getAllTheItems();
                 <li class="nav-item active">
                     <a href="/records" class="nav-link">Records</a>
                 </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link">About</a>
+                </li>
 
             </ul>
 
         </div>
     </nav>
 </div>
+<hr class="customHR">
+<br>
+
 
 <div class="container col-md-12">
 
@@ -80,7 +88,14 @@ $itemsArray = getAllTheItems();
                     <td><a href="/<?= $item['Slang'] ?>"><?= $item['Slang'] ?></a></td>
                     <td><a href="<?= $item['URL'] ?>"><?= $item['URL'] ?></a></td>
                     <td><?= $item['CreationDate'] ?></td>
-                    <td><?= $item['LastAccessDate'] ?></td>
+                    <td><?
+
+						$lastAccessDate = $item['LastAccessDate'];
+						if (strpos($lastAccessDate, '0000') !== false) {
+							$lastAccessDate = 'Never';
+						}
+
+						echo $lastAccessDate; ?></td>
                     <td><?= $item['RedirectionNumber'] ?></td>
 
                 </tr>
