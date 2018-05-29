@@ -1,9 +1,10 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/sessionHandler.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/helperFunctions.php');
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv\Dotenv($_SERVER['DOCUMENT_ROOT']);
 $dotenv->load();
 
 
@@ -35,4 +36,45 @@ function connectToDB()
 	return $pdo;
 }
 
-?>
+
+function isSlangOK($slang)
+{
+
+	$slangToSave = preg_replace("/[^A-Za-z0-9 ]/", '',
+		strip_tags(trim($slang)));
+
+	if (strlen($slangToSave) > 0) {
+		$pdo = connectToDB();
+
+		if ($pdo !== null) {
+			$stmnt = $pdo->prepare('SELECT * FROM items WHERE Slang = :Slang LIMIT 1');
+			$stmnt->execute(['Slang' => $slangToSave]);
+			$result = $stmnt->fetch();
+			return empty($result);
+
+		}
+
+	} else {
+		return false;
+	}
+	return false;
+}
+
+function saveToDB($url, $slang, $ip)
+{
+	if (strlen($url) > 0 || strlen($slang) > 0) {
+		$pdo = connectToDB();
+
+		if ($pdo !== null) {
+			$stmnt = $pdo->
+			prepare('INSERT INTO items (Slang,URL,CreationDate,CreationIP) 
+			VALUES (:Slang,:URL,NOW(),:ip)');
+
+			$stmnt->execute(['Slang' => $slang, 'URL' => $url, 'ip' => $ip]);
+
+		}
+	}
+
+}
+
+
