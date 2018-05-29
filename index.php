@@ -1,3 +1,4 @@
+<?php ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+
+
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-light">
@@ -47,6 +50,3 @@
 </body>
 </html>
 
-<?php
-
-?>
