@@ -8,7 +8,7 @@ $dotenv = new Dotenv\Dotenv($_SERVER['DOCUMENT_ROOT']);
 $dotenv->load();
 
 
-function connectToDB()
+function getPDO()
 {
 
 	$host = getenv("DB_HOST");
@@ -44,7 +44,7 @@ function isSlangOK($slang)
 		strip_tags(trim($slang)));
 
 	if (strlen($slangToSave) > 0) {
-		$pdo = connectToDB();
+		$pdo = getPDO();
 
 		if ($pdo !== null) {
 			$stmnt = $pdo->prepare('SELECT * FROM items WHERE Slang = :Slang LIMIT 1');
@@ -63,7 +63,7 @@ function isSlangOK($slang)
 function saveToDB($url, $slang, $ip)
 {
 	if (strlen($url) > 0 || strlen($slang) > 0) {
-		$pdo = connectToDB();
+		$pdo = getPDO();
 
 		if ($pdo !== null) {
 			$stmnt = $pdo->
@@ -75,6 +75,15 @@ function saveToDB($url, $slang, $ip)
 		}
 	}
 
+}
+
+function getAllTheItems()
+{
+	$pdo = getPDO();
+
+	$stmnt = $pdo->prepare('SELECT * FROM items ORDER BY Id');
+	$stmnt->execute();
+	return $stmnt->fetchAll();
 }
 
 

@@ -23,7 +23,7 @@ $operationFrontEnd = 'shorten';
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-light">
-        <a class="navbar-brand" href="/">SHORTM - COP4466</a>
+        <a class="navbar-brand" href="/">ShortM - URL Shortening Service</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,7 @@ $operationFrontEnd = 'shorten';
         <div class="row d-flex">
 
             <div class="input-group col-md-4">
-                <input name="url" type="url" value="https://tahaburakkoc.com" class="form-control input-lg" placeholder="Please enter the URL."
+                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg" placeholder="Please enter the URL."
                        minlength="5"
                        autofocus required>
             </div>
@@ -94,15 +94,6 @@ $operationFrontEnd = 'shorten';
         }
     }
 
-    function showPW(e) {
-        e.setAttribute('class', 'fa fa-unlock fa-fw');
-        var changeType = 'text';
-        if (pw.getAttribute('type') === 'text') {
-            changeType = 'password';
-            e.setAttribute('class', 'fa fa-lock fa-fw');
-        }
-        pw.setAttribute('type', changeType);
-    }
 </script>
 
 <?php
