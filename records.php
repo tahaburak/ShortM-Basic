@@ -13,15 +13,19 @@ $itemsArray = getAllTheItems();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Records</title>
+    <title>ShortM - Records</title>
+    <link rel="stylesheet" id="loaderCSS" href="/css/loader.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/resources/DataTables/datatables.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+
 
     <style>
         .buttons-columnVisibility:not(.active) {
             text-decoration: line-through;
         }
     </style>
+	<?php getLoader(); ?>
 </head>
 
 
@@ -115,7 +119,6 @@ $itemsArray = getAllTheItems();
 <script src="/resources/DataTables/pdfmake-0.1.32/vfs_fonts.js"></script>
 
 
-
 <script>
     console.log("huh");
     $(document).ready(function () {
@@ -138,11 +141,11 @@ $itemsArray = getAllTheItems();
             stateSave: false
         });
 
-        new $.fn.dataTable.Buttons( table, {
+        new $.fn.dataTable.Buttons(table, {
             buttons: [
-                'copy', 'excel', 'pdf','csv','print'
+                'copy', 'excel', 'pdf', 'csv', 'print'
             ]
-        } );
+        });
 
         table.buttons(1, null).container().appendTo(
             table.table().container()

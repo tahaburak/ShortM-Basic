@@ -66,3 +66,45 @@ function generateReadableRandomString($length = 5)
 	return $result;
 
 }
+
+
+// Loader for pages
+
+function getLoader()
+{
+	?>
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	</div>
+
+	<script>
+        var removed = false;
+
+        function removeLoader() {
+            if (document.readyState === "complete" && $("#loaderCSS").length > 0 && $("#loader").length > 0) {
+                /* $("#loader").hide('slow',function () {
+                 this.remove();
+                 });*/
+                $("#loader").remove();
+                $("#loaderCSS").remove();
+
+                removed = true;
+            }
+
+        }
+        var interval = setInterval(function () {
+            if (removed) {
+                clearInterval(interval);
+            }
+            else {
+                removeLoader();
+            }
+        }, 1000);
+
+	</script>
+	<?
+
+
+}

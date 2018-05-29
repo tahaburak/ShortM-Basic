@@ -8,15 +8,17 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
 $operationFrontEnd = 'shorten';
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
+    <title>ShortM - Home</title>
+    <link rel="stylesheet" id="loaderCSS" href="/css/loader.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+	<?php getLoader(); ?>
 </head>
 
 
@@ -49,7 +51,8 @@ $operationFrontEnd = 'shorten';
         <div class="row d-flex">
 
             <div class="input-group col-md-4">
-                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg" placeholder="Please enter the URL."
+                <input name="url" type="url" value="http://tahaburakkoc.com" class="form-control input-lg"
+                       placeholder="Please enter the URL."
                        minlength="5"
                        autofocus required>
             </div>
@@ -71,24 +74,23 @@ $operationFrontEnd = 'shorten';
     }
 </script>
 <script src="/js/bootstrap.min.js"></script>
-
-
+<script src="/js/notify/notify.min.js"></script>
 <script>
     function showError(a) {
 
-        jQuery.notify.defaults({
+        $.notify.defaults({
             className: 'error',
             clickToHide: true,
             autoHide: false,
             globalPosition: 'top center'
         });
-        jQuery.notify(a);
-        var cornerDiv = jQuery(".notifyjs-corner");
+        $.notify(a);
+        let cornerDiv = jQuery(".notifyjs-corner");
         cornerDiv.attr('style', 'top: 0px; left: 50%;transform: translateX(-50%)');
     }
 
     function removeNotifyDiv() {
-        var cornerDiv = jQuery(".notifyjs-corner");
+        let cornerDiv = jQuery(".notifyjs-corner");
         if (cornerDiv.length > 0) {
             cornerDiv.remove();
         }

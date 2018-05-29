@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 29, 2018 at 02:08 PM
+-- Generation Time: May 29, 2018 at 08:04 PM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ShortMDB`
 --
-CREATE DATABASE IF NOT EXISTS `ShortMDB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `ShortMDB`;
 
 -- --------------------------------------------------------
 
@@ -29,15 +27,16 @@ USE `ShortMDB`;
 --
 
 CREATE TABLE `items` (
-  `Id` int(10) UNSIGNED NOT NULL,
-  `Slang` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `URL` varchar(2000) CHARACTER SET latin1 NOT NULL,
-  `CreationDate` datetime NOT NULL,
-  `CreationIP` int(16) UNSIGNED DEFAULT NULL,
-  `LastAccessDate` datetime NOT NULL,
-  `LastAccessedIP` int(16) UNSIGNED DEFAULT NULL,
-  `RedirectionNumber` bigint(20) NOT NULL DEFAULT '0'
+	`Id` int(10) UNSIGNED NOT NULL,
+	`Slang` varchar(100) CHARACTER SET latin1 NOT NULL,
+	`URL` varchar(2000) CHARACTER SET latin1 NOT NULL,
+	`CreationDate` datetime NOT NULL,
+	`CreationIP` int(16) UNSIGNED DEFAULT NULL,
+	`LastAccessDate` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+	`LastAccessedIP` int(16) UNSIGNED DEFAULT NULL,
+	`RedirectionNumber` bigint(20) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Indexes for dumped tables
@@ -47,8 +46,8 @@ CREATE TABLE `items` (
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
-  ADD PRIMARY KEY (`Id`),
-  ADD UNIQUE KEY `Slang` (`Slang`);
+ADD PRIMARY KEY (`Id`),
+ADD UNIQUE KEY `Slang` (`Slang`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -58,7 +57,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

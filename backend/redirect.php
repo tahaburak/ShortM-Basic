@@ -28,3 +28,6 @@ if (!isSlangOK($slang)) {
 	header("Location: $url");
 
 }
+else {
+	abortRedirect("No URL to redirect.");
+}

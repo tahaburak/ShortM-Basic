@@ -9,7 +9,6 @@ if (array_key_exists('errorMessage', $_SESSION) && !empty($_SESSION['errorMessag
 //store the error message and remove it from session
 unset($_SESSION['errorMessage']);
 
-
 function showErrorMSG()
 {
 
