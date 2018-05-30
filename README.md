@@ -6,6 +6,7 @@ ShortM - URL Shortening Service
 ### Used Libraries:
 - [Bootstrap v4.1.1](http://getbootstrap.com/)
 - [JQuery](https://jquery.com/)
+- [phpdotenv](https://github.com/vlucas/phpdotenv)
 - [Notify.js](https://github.com/jpillora/notifyjs)
 - [DataTables](https://www.datatables.net/)
 - [JSZip](https://stuk.github.io/jszip/)
