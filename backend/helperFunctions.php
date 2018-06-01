@@ -67,6 +67,25 @@ function generateReadableRandomString($length = 5)
 
 }
 
+/* Check if url has http or https protocol. if not add http.*/
+function addHTTPProtocolIfNeeded($url)
+{
+
+	if ((!(substr($url, 0, 7) == 'http://')) && (!(substr($url, 0, 8) == 'https://'))) {
+		$url = 'http://' . $url;
+	}
+
+
+	return $url;
+
+}
+
+// Check if the data is really a url
+function validateURL($url)
+{
+    return !(filter_var($url, FILTER_VALIDATE_URL) === FALSE);
+
+}
 
 // Loader for pages
 

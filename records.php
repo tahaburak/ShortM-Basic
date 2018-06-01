@@ -149,7 +149,7 @@ $itemsArray = getAllTheItems();
                 {data: 'LastUsageDate'},
                 {data: 'UsageNumbers'}
             ],
-            "order": [[0, "asc"]],
+            "order": [[2, "desc"]],
             dom: '<B<"rowSpecial"<"col-xs-6"l><"col-xs-6"f>>rtip>',
             buttons: ['columnsToggle'],
 
