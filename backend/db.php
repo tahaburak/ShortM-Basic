@@ -81,7 +81,7 @@ function getAllTheItems()
 {
 	$pdo = getPDO();
 
-	$stmnt = $pdo->prepare('SELECT * FROM items ORDER BY Id');
+	$stmnt = $pdo->prepare('SELECT * FROM items ORDER BY CreationDate DESC');
 	$stmnt->execute();
 	return $stmnt->fetchAll();
 }

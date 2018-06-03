@@ -135,7 +135,6 @@ $itemsArray = getAllTheItems();
 
 
 <script>
-    console.log("huh");
     $(document).ready(function () {
 
         let table = $('#items').DataTable({
