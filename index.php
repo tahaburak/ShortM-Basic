@@ -65,7 +65,7 @@ $operationFrontEnd = 'shorten';
             <div class="row d-flex justify-content-center text-center align-items-center">
 
                 <div class="input-group col-md-8 mx-auto">
-                    <input name="url" type="url"
+                    <input name="url" type="text"
                            class="form-control input-lg text-center"
                            placeholder="Please enter the URL."
                            minlength="5"

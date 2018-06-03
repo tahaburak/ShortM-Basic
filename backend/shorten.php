@@ -15,12 +15,18 @@ if (!array_key_exists('operation', $_POST) || $_POST['operation'] !== $operation
 } else {
 
 	$ip = $_POST['ip'];
-	$url = strip_tags($_POST['url']);
+	$url = filter_var(addHTTPProtocolIfNeeded(strip_tags($_POST['url'])),FILTER_SANITIZE_URL);
 
 	// an example controller
 	if (strlen($url) < 5) {
-		abortRedirect('URL can not be shorter than 5 characters.');
+		abortRedirect('An URL can not be shorter than 5 characters.');
 	}
+
+	if (!validateURL($url)) {
+		abortRedirect('Please enter a valid URL.');
+
+	}
+
 
 	$slang = generateReadableRandomString();
 
