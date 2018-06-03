@@ -142,7 +142,25 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
     }
 </script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/hammer.min.js"></script>
+<script>
 
+    $('.carousel').each(function () {
+        var $carousel = $(this);
+        var hammertime = new Hammer(this, {
+            recognizers: [
+                [Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]
+            ]
+        });
+        hammertime.on('swipeleft', function () {
+            $carousel.carousel('next');
+        });
+        hammertime.on('swiperight', function () {
+            $carousel.carousel('prev');
+        });
+    });
+
+</script>
 
 </body>
 </html>
