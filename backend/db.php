@@ -1,20 +1,19 @@
 <?php
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/sessionHandler.php');
-require_once($_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/helperFunctions.php');
 
-$dotenv = new Dotenv\Dotenv($_SERVER['DOCUMENT_ROOT']);
-$dotenv->load();
-
+$configs = include($_SERVER['DOCUMENT_ROOT'] . '/backend/configuration.php');
 
 function getPDO()
 {
 
-	$host = getenv("DB_HOST");
-	$db = getenv("DB_DATABASE");
-	$user = getenv("DB_USERNAME");
-	$pass = getenv("DB_PASSWORD");
+	global $configs;
+
+	$host = $configs->DB_HOST;
+	$db = $configs->DB_DATABASE;
+	$user = $configs->DB_USERNAME;
+	$pass = $configs->DB_PASSWORD;
 	$charset = 'utf8';
 
 	$dsn = "mysql:host=$host;dbname=$db;charset=$charset";

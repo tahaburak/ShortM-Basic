@@ -4,6 +4,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/sessionHandler.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/helperFunctions.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
 
+$configs = include($_SERVER['DOCUMENT_ROOT'] . '/backend/configuration.php');
+
 $url = '';
 $slang = '';
 $slangAsLink = '';
@@ -15,7 +17,7 @@ if (!array_key_exists('savedURL', $_SESSION) || empty($_SESSION['savedURL']) ||
 } else {
 	$url = $_SESSION['savedURL'];
 	$slang = $_SESSION['savedSlang'];
-	$slangAsLink = "https://shortm.ml/$slang";
+	$slangAsLink = $configs->HOST_FULL . $slang;
 
 	//empty the values so that user can shorten more links.
 	$_SESSION['savedURL'] = '';
@@ -43,7 +45,7 @@ if (!array_key_exists('savedURL', $_SESSION) || empty($_SESSION['savedURL']) ||
 <br>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background: #5a6268">
-        <a class="navbar-brand" href="/">ShortM - URL Shortener</a>
+        <a class="navbar-brand" href="/"><?= $configs->HOST_TITLE; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

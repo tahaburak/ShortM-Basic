@@ -4,6 +4,9 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/sessionHandler.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/helperFunctions.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
 
+$configs = include($_SERVER['DOCUMENT_ROOT'] . '/backend/configuration.php');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +27,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
 <br>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background: #5a6268">
-        <a class="navbar-brand" href="/">ShortM - URL Shortener</a>
+        <a class="navbar-brand" href="/"><?= $configs->HOST_TITLE; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -149,7 +152,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/errorMessageHandler.php');
         var $carousel = $(this);
         var hammertime = new Hammer(this, {
             recognizers: [
-                [Hammer.Swipe, { direction: Hammer.DIRECTION_HORIZONTAL }]
+                [Hammer.Swipe, {direction: Hammer.DIRECTION_HORIZONTAL}]
             ]
         });
         hammertime.on('swipeleft', function () {

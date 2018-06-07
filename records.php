@@ -3,6 +3,8 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/sessionHandler.php');
 require_once($_SERVER['DOCUMENT_ROOT'] . '/backend/db.php');
 
+$configs = include($_SERVER['DOCUMENT_ROOT'] . '/backend/configuration.php');
+
 $itemsArray = getAllTheItems();
 ?>
 
@@ -34,7 +36,7 @@ $itemsArray = getAllTheItems();
 <br>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-sm navbar-dark" style="background: #5a6268">
-        <a class="navbar-brand" href="/">ShortM - URL Shortener</a>
+        <a class="navbar-brand" href="/"><?= $configs->HOST_TITLE; ?></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
